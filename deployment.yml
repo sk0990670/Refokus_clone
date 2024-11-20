@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: refokus-webapp-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: refokus-webapp
+  template:
+    metadata:
+      labels:
+        app: refokus-webapp
+    spec:
+      containers:
+      - name: refokus-webapp
+        image: solosahej/refokus-webapp
+        ports:
+        - containerPort: 3000
